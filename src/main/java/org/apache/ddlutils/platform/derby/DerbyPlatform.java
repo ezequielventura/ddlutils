@@ -63,6 +63,7 @@ public class DerbyPlatform extends CloudscapePlatform
 
         info.addNativeTypeMapping(Types.DOUBLE, "DOUBLE");
         info.addNativeTypeMapping(Types.FLOAT,  "DOUBLE", Types.DOUBLE);
+	info.addNativeTypeMapping(Types.BOOLEAN, "BOOLEAN");
         info.setSupportedOnUpdateActions(new CascadeActionEnum[] { CascadeActionEnum.NONE, CascadeActionEnum.RESTRICT });
         info.setDefaultOnUpdateAction(CascadeActionEnum.NONE);
         info.addEquivalentOnUpdateActions(CascadeActionEnum.NONE, CascadeActionEnum.RESTRICT);

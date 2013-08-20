@@ -52,10 +52,14 @@ public class DerbyBuilder extends CloudscapeBuilder
      */
     protected String getNativeDefaultValue(Column column)
     {
-        if ((column.getTypeCode() == Types.BIT) || (column.getTypeCode() == Types.BOOLEAN))
+        if (column.getTypeCode() == Types.BIT)
         {
             return getDefaultValueHelper().convert(column.getDefaultValue(), column.getTypeCode(), Types.SMALLINT);
         }
+	else if (column.getTypeCode() == Types.BOOLEAN)
+	{
+	    return getDefaultValueHelper().convert(column.getDefaultValue(), column.getTypeCode(), Types.BOOLEAN);
+	}
         else
         {
             return super.getNativeDefaultValue(column);

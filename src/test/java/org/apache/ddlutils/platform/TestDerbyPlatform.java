@@ -51,7 +51,7 @@ public class TestDerbyPlatform extends TestPlatformBase
             "    \"COL_BINARY\"          CHAR(254) FOR BIT DATA,\n"+
             "    \"COL_BIT\"             SMALLINT,\n"+
             "    \"COL_BLOB\"            BLOB,\n"+
-            "    \"COL_BOOLEAN\"         SMALLINT,\n"+
+            "    \"COL_BOOLEAN\"         BOOLEAN,\n"+
             "    \"COL_CHAR\"            CHAR(15),\n"+
             "    \"COL_CLOB\"            CLOB,\n"+
             "    \"COL_DATALINK\"        LONG VARCHAR FOR BIT DATA,\n"+
