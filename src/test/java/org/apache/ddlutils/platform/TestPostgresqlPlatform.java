@@ -89,14 +89,14 @@ public class TestPostgresqlPlatform extends TestPlatformBase
     {
         assertEqualsIgnoringWhitespaces(
             "DROP TABLE \"constraints\" CASCADE;\n" +
-            "DROP SEQUENCE \"constraints_COL_K_AUTO_INCR_seq\";\n" +
+            "DROP SEQUENCE \"constraints_COL_PK_AUTO_INCR_seq\";\n" +
             "DROP SEQUENCE \"constraints_COL_AUTO_INCR_seq\";\n" +
-            "CREATE SEQUENCE \"constraints_COL_K_AUTO_INCR_seq\";\n" +
+            "CREATE SEQUENCE \"constraints_COL_PK_AUTO_INCR_seq\";\n" +
             "CREATE SEQUENCE \"constraints_COL_AUTO_INCR_seq\";\n" +
             "CREATE TABLE \"constraints\"\n"+
             "(\n"+
             "    \"COL_PK\"               VARCHAR(32),\n"+
-            "    \"COL_PK_AUTO_INCR\"     INTEGER UNIQUE DEFAULT nextval('\"constraints_COL_K_AUTO_INCR_seq\"'),\n"+
+            "    \"COL_PK_AUTO_INCR\"     INTEGER UNIQUE DEFAULT nextval('\"constraints_COL_PK_AUTO_INCR_seq\"'),\n"+
             "    \"COL_NOT_NULL\"         BYTEA NOT NULL,\n"+
             "    \"COL_NOT_NULL_DEFAULT\" DOUBLE PRECISION DEFAULT -2.0 NOT NULL,\n"+
             "    \"COL_DEFAULT\"          CHAR(4) DEFAULT 'test',\n"+
@@ -113,7 +113,7 @@ public class TestPostgresqlPlatform extends TestPlatformBase
     {
         assertEqualsIgnoringWhitespaces(
             "ALTER TABLE \"table3\" DROP CONSTRAINT \"testfk\";\n"+
-            "ALTER TABLE \"table2\" DROP CONSTRAINT \"table2_FK_COL_F_COL_FK_2_table1\";\n"+
+            "ALTER TABLE \"table2\" DROP CONSTRAINT \"table2_FK_COL_FK_1_COL_FK_2_table1\";\n"+
             "DROP TABLE \"table3\" CASCADE;\n"+
             "DROP TABLE \"table2\" CASCADE;\n"+
             "DROP TABLE \"table1\" CASCADE;\n"+
@@ -141,7 +141,7 @@ public class TestPostgresqlPlatform extends TestPlatformBase
             "    \"COL_FK\" INTEGER NOT NULL,\n"+
             "    PRIMARY KEY (\"COL_PK\")\n"+
             ");\n"+
-            "ALTER TABLE \"table2\" ADD CONSTRAINT \"table2_FK_COL_F_COL_FK_2_table1\" FOREIGN KEY (\"COL_FK_1\", \"COL_FK_2\") REFERENCES \"table1\" (\"COL_PK_2\", \"COL_PK_1\");\n"+
+            "ALTER TABLE \"table2\" ADD CONSTRAINT \"table2_FK_COL_FK_1_COL_FK_2_table1\" FOREIGN KEY (\"COL_FK_1\", \"COL_FK_2\") REFERENCES \"table1\" (\"COL_PK_2\", \"COL_PK_1\");\n"+
             "ALTER TABLE \"table3\" ADD CONSTRAINT \"testfk\" FOREIGN KEY (\"COL_FK\") REFERENCES \"table2\" (\"COL_PK\");\n",
             getTableConstraintTestDatabaseCreationSql());
     }

@@ -69,7 +69,7 @@ public class PostgreSqlPlatform extends PlatformImplBase
         info.setPrimaryKeyColumnAutomaticallyRequired(true);
         // this is the default length though it might be changed when building PostgreSQL
         // in file src/include/postgres_ext.h
-        info.setMaxIdentifierLength(31);
+        info.setMaxIdentifierLength(63);
 
         info.addNativeTypeMapping(Types.ARRAY,         "BYTEA",            Types.LONGVARBINARY);
         info.addNativeTypeMapping(Types.BINARY,        "BYTEA",            Types.LONGVARBINARY);
